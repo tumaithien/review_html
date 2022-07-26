@@ -1,0 +1,7 @@
+$primary-color: blue;
+.image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border: 1px solid $primary-color;
+}

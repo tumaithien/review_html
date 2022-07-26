@@ -1,0 +1,104 @@
+@import "class";
+$primary-color: #42a7fe;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+.circle-process {
+  span {
+    font-size: 1rem;
+    color: red;
+  }
+}
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+.boxed {
+  //   width: 50rem;
+  //   height: 50rem;
+  @include size(50rem, 50rem);
+  span {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+.dropdown {
+  width: 25rem;
+  margin: 2rem auto 0;
+  position: relative;
+  &__select {
+    padding: 1.25rem 2rem 1.25rem 2rem;
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  &__text {
+    margin-left: 2rem;
+  }
+  &__caret {
+    margin-left: auto;
+  }
+  &__item {
+    padding: 1.25rem 2rem 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    color: #b3bbce;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: color 0.1s linear;
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    &:hover {
+      color: #74809d;
+      border-left-color: $primary-color;
+    }
+  }
+  &__list {
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(black, 0.1);
+    position: absolute;
+    top: 100%;
+    margin-top: 1.25rem;
+    width: 100%;
+    background-color: #fff;
+    // display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+    &::before {
+      content: "";
+      @include size(1.25rem);
+      // border-left: 10px solid transparent;
+      // border-right: 10px solid transparent;
+      // border-bottom: 10px solid #fff;
+      background-color: #fff;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      right: 1.2rem;
+      transform: translateY(-50%) rotate(45deg);
+      box-shadow: 0 0 10px 0 rgba(black, 0.1);
+      z-index: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      @include size(100%, 1.25rem);
+      transform: translateY(-100%);
+    }
+  }
+  &:hover {
+    .dropdown__list {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
