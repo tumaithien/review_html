@@ -1,0 +1,111 @@
+$green-color: #00c889;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+.work {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+
+  &__title {
+    color: #1a0a3b;
+    font-weight: bold;
+    font-size: 2rem;
+    position: relative;
+    // border-bottom: 4px solid $green-color;
+    // display: inline-block;
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    &::before {
+      position: absolute;
+      @include size(2rem, 0.25rem);
+      content: "";
+      bottom: 0;
+      left: 0;
+      background-color: $green-color;
+      border-radius: 10px;
+    }
+  }
+  &__filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  &-tab {
+    display: flex;
+    column-gap: 10px;
+    &-item {
+      padding: 0.25rem 1rem;
+      border: 1px solid $green-color;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 500;
+      border-top-left-radius: 100rem;
+      border-bottom-left-radius: 100rem;
+      border-bottom-right-radius: 100rem;
+      transition: all 0.2s linear;
+      &:hover {
+        background-color: $green-color;
+        color: #fff;
+      }
+    }
+  }
+  &__all {
+    padding: 7px 7px;
+    background-color: rgba(0, 200, 137, 0.177);
+    text-decoration: none;
+    color: $green-color;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+  }
+  &__list {
+    display: flex;
+    margin-left: -15px;
+    flex-wrap: wrap;
+  }
+  &__item {
+    width: calc(25% - 15px);
+    height: 250px;
+    margin-left: 15px;
+  }
+  &__img {
+    @include size(100%);
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+// 320 480 768 1024 1280 1366 1440 1600 1920
+//min-width: 1024px -> >= 1024px
+//max-width: 1023px -> <= 1023px
+
+@media screen and (min-width: 1024px) {
+}
+@media screen and (max-width: 1023px) {
+  .work {
+    &__item {
+      width: calc(50% - 15px);
+      margin-bottom: 15px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .work {
+    &__item {
+      width: 100%;
+    }
+    &__filter {
+      flex-direction: column;
+    }
+    &-tab {
+      flex-wrap: wrap;
+      justify-content: center;
+      &-item {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}

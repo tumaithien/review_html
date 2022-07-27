@@ -1,9 +1,7 @@
 @import "class";
+@import "landing";
 $primary-color: #42a7fe;
-@mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
-}
+
 .circle-process {
   span {
     font-size: 1rem;
@@ -67,8 +65,8 @@ $primary-color: #42a7fe;
     width: 100%;
     background-color: #fff;
     // display: none;
-    opacity: 0;
-    visibility: hidden;
+    // opacity: 0;
+    // visibility: hidden;
     transition: all 0.2s linear;
     &::before {
       content: "";
@@ -82,7 +80,7 @@ $primary-color: #42a7fe;
       top: 0;
       right: 1.2rem;
       transform: translateY(-50%) rotate(45deg);
-      box-shadow: 0 0 10px 0 rgba(black, 0.1);
+      box-shadow: -8px -10px 10px 0 rgb(0 0 0 / 10%);
       z-index: 0;
     }
     &::after {
