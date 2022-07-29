@@ -1,8 +1,5 @@
 $green-color: #00c889;
-@mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
-}
+@import "mixin";
 .work {
   max-width: 1200px;
   margin: 0 auto;
@@ -29,8 +26,9 @@ $green-color: #00c889;
     }
   }
   &__filter {
-    display: flex;
-    justify-content: space-between;
+    @include flexbox($justify: space-between, $flex-direction: row);
+    // display: flex;
+    // justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
   }
@@ -98,7 +96,7 @@ $green-color: #00c889;
       width: 100%;
     }
     &__filter {
-      flex-direction: column;
+      @include flexbox($flex-direction: column);
     }
     &-tab {
       flex-wrap: wrap;

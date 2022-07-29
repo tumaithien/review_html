@@ -1,0 +1,91 @@
+@import "mixin";
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  td,
+  th {
+    font-size: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+    color: #8c94a7;
+  }
+  thead tr {
+    border-bottom: 2px solid #ccc;
+  }
+  .desc {
+    white-space: nowrap;
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .status {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 100rem;
+    &--active {
+      color: green;
+      background-color: rgba($color: green, $alpha: 0.2);
+    }
+  }
+  .action {
+    &-icon {
+      cursor: pointer;
+      margin: 0 5px;
+    }
+  }
+  .toggle {
+    &-input {
+      display: none;
+      &:checked + .toggle-label {
+        background-color: #123ea5;
+        &::before {
+          background-color: #135aff;
+          transform: translate(31px, -50%);
+        }
+      }
+    }
+    &-label {
+      width: 3.2rem;
+      height: 4px;
+      border-radius: 1rem;
+      background-color: #ccc;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s linear;
+      &::before {
+        position: absolute;
+        content: "";
+        @include size(20px);
+        border-radius: 50%;
+        background-color: #eee;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: all 0.2s linear;
+      }
+    }
+  }
+}
+@include maxWidth(1279px) {
+  .table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  table {
+    .action {
+      display: flex;
+      &-icon {
+        cursor: pointer;
+        margin: 0 5px;
+      }
+    }
+  }
+}
