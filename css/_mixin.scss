@@ -23,11 +23,6 @@ $text-color: #291667;
     @content;
   }
 }
-@mixin maxWidth($value) {
-  @media screen and (max-width: $value) {
-    @content;
-  }
-}
 @mixin minWidth($value) {
   @media screen and (min-width: $value) {
     @content;
